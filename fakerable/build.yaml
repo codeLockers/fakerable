@@ -1,0 +1,8 @@
+builders:
+  fakerable:
+    import: 'package:fakerable/fakerable_builder.dart'  #build文件
+    builder_factories: ['fakerable']
+    build_extensions: {'.dart': ['.fakerable.g.dart']}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
