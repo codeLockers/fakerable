@@ -30,6 +30,12 @@ class FakerableDouble {
   const FakerableDouble(this.scale, this.min);
 }
 
+class FakerableList {
+  final int max;
+  final int min;
+  const FakerableList(this.max, this.min);
+}
+
 enum FakerableValueType {
   image,
   phone,

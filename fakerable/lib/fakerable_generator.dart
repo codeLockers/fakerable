@@ -1,12 +1,25 @@
+import 'dart:math';
+
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:fakerable/fakerable_visitor.dart';
 import 'package:fakerable_annotations/fakerable_annotations.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:path/path.dart' as p;
+import 'package:faker/faker.dart';
+
+import 'fakerable_core.dart';
+
+part 'fakerable_list_handler.dart';
+part 'fakerable_string_handler.dart';
+part 'fakerable_num_handler.dart';
+part 'fakerable_model_handler.dart';
+part 'fakerable_map_handler.dart';
 
 class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
-  final fakerClassName = 'Faker';
+  final Faker faker = Faker();
 
   @override
   generateForAnnotatedElement(
@@ -20,7 +33,7 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
     classBuffer
         .writeln('${visitor.className} _\$${visitor.className}Fakerable() {');
     classBuffer.writeln(
-        'final $fakerClassName ${fakerClassName.toLowerCase()} = $fakerClassName();');
+        'final $FakerClassName $FakerInstanceName = $FakerClassName();');
     classBuffer.writeln('return ${visitor.className}(');
 
     for (var field in visitor.fields) {
@@ -39,79 +52,11 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
       return _handleIntField(field);
     } else if (field.type.isDartCoreDouble) {
       return _handleDoubleField(field);
+    } else if (field.type.isDartCoreList) {
+      return _handleListField(field);
+    } else if (field.type.isDartCoreMap) {
+      return _handleMapField(field);
     }
-    return _handleCustomField(field);
-  }
-
-  String _handleStringField(FieldElement field) {
-    final fakerableValue =
-        const TypeChecker.fromRuntime(FakerableValue).firstAnnotationOf(field);
-    if (fakerableValue == null) {
-      //common string
-      final fakerableString = const TypeChecker.fromRuntime(FakerableString)
-          .firstAnnotationOf(field);
-      if (fakerableString == null) {
-        return '${fakerClassName.toLowerCase()}.randomGenerator.string(10),';
-      } else {
-        final reader = ConstantReader(fakerableString);
-        final max = reader.read('max');
-        final min = reader.read('min');
-        return '${fakerClassName.toLowerCase()}.randomGenerator.string(${max.intValue}, min: ${min.intValue}),';
-      }
-    } else {
-      final reader = ConstantReader(fakerableValue);
-      final type = reader.read('type');
-      if ((type.objectValue.variable?.type.toString() ?? '') ==
-          'FakerableValueType') {
-        final FakerableValueType fakerableValueType =
-            FakerableValueType.type(type.objectValue.variable?.name ?? '');
-        switch (fakerableValueType) {
-          case FakerableValueType.email:
-            return '${fakerClassName.toLowerCase()}.internet.email(),';
-          case FakerableValueType.phone:
-            return '${fakerClassName.toLowerCase()}.phoneNumber.us(),';
-          case FakerableValueType.image:
-            return '${fakerClassName.toLowerCase()}.image.image(),';
-        }
-      } else {
-        return '';
-      }
-    }
-  }
-
-  String _handleIntField(FieldElement field) {
-    final fakerableInt =
-        const TypeChecker.fromRuntime(FakerableInt).firstAnnotationOf(field);
-    if (fakerableInt == null) {
-      return '${fakerClassName.toLowerCase()}.randomGenerator.integer(10),';
-    } else {
-      final reader = ConstantReader(fakerableInt);
-      final max = reader.read('max');
-      final min = reader.read('min');
-      return '${fakerClassName.toLowerCase()}.randomGenerator.integer(${max.intValue}, min: ${min.intValue}),';
-    }
-  }
-
-  String _handleDoubleField(FieldElement field) {
-    final fakerableDouble =
-        const TypeChecker.fromRuntime(FakerableDouble).firstAnnotationOf(field);
-    if (fakerableDouble == null) {
-      return '${fakerClassName.toLowerCase()}.randomGenerator.decimal(),';
-    } else {
-      final reader = ConstantReader(fakerableDouble);
-      final scale = reader.read('scale');
-      final min = reader.read('min');
-      return '${fakerClassName.toLowerCase()}.randomGenerator.decimal(scale: ${scale.doubleValue}, min: ${min.doubleValue}),';
-    }
-  }
-
-  String _handleCustomField(FieldElement field) {
-    final fakerableInline =
-        const TypeChecker.fromRuntime(FakerableInline).firstAnnotationOf(field);
-    if (fakerableInline == null) {
-      return '';
-    } else {
-      return '${field.type}.fakerable(),';
-    }
+    return _handleModelField(field);
   }
 }
