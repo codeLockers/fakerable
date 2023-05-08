@@ -4,8 +4,26 @@ class Fakerable {
   const Fakerable();
 }
 
-const fakeable = Fakerable();
+const fakerable = Fakerable();
 
+class FakerableRange {
+  static const defaultMin = 10;
+  static const defaultMax = 10;
+
+  final int min;
+  final int max;
+
+  const FakerableRange(
+      {this.min = FakerableRange.defaultMin,
+      this.max = FakerableRange.defaultMax});
+}
+
+class FakerableValue<T> {
+  final T value;
+  const FakerableValue(this.value);
+}
+
+//--------------
 class FakerableInline {
   const FakerableInline();
 }
@@ -45,8 +63,8 @@ enum FakerableValueType {
       FakerableValueType.values.firstWhere((type) => type.name == name);
 }
 
-class FakerableValue {
+class FakerableValueAAA {
   final FakerableValueType type;
 
-  const FakerableValue(this.type);
+  const FakerableValueAAA(this.type);
 }

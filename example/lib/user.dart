@@ -3,7 +3,7 @@ import 'package:faker/faker.dart';
 
 part 'user.fakerable.g.dart';
 
-@fakeable
+@fakerable
 class User {
   final int sex;
   final double height;

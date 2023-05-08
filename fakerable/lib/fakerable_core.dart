@@ -8,6 +8,14 @@ String FakerRandomGeneratorMethod = 'randomGenerator';
 
 String errorPlaceholder = 'this type can not parse!!!';
 
+class FakerableConstants {
+  static String Faker = 'Faker';
+  static String faker = Faker.toLowerCase();
+  static String randomGenerator = 'randomGenerator';
+  static String integer =
+      '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.integer';
+}
+
 int randomInt(int min, int max) {
   if (min >= max) {
     return min;
@@ -22,4 +30,6 @@ extension StringConvertType on String {
   bool get isBool => this == 'bool';
   bool get isList => startsWith('List<');
   bool get isMap => startsWith('Map<');
+
+  String get commable => '$this,';
 }

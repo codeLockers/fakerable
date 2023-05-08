@@ -14,7 +14,8 @@ import 'fakerable_core.dart';
 
 part 'fakerable_list_handler.dart';
 part 'fakerable_string_handler.dart';
-part 'fakerable_num_handler.dart';
+part 'fakerable_double_handler.dart';
+part 'fakerable_int_handler.dart';
 part 'fakerable_model_handler.dart';
 part 'fakerable_map_handler.dart';
 
@@ -46,12 +47,12 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
   }
 
   String _handleField(FieldElement field) {
-    if (field.type.isDartCoreString) {
+    if (field.type.isDartCoreInt) {
+      return _handleIntField(field).commable;
+    } else if (field.type.isDartCoreString) {
       return _handleStringField(field);
     } else if (field.type.isDartCoreBool) {
       return _handleBoolField();
-    } else if (field.type.isDartCoreInt) {
-      return _handleIntField(field);
     } else if (field.type.isDartCoreDouble) {
       return _handleDoubleField(field);
     } else if (field.type.isDartCoreList) {

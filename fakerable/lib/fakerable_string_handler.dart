@@ -5,7 +5,7 @@ final String defaultStringFakerable =
 
 String _handleStringField(FieldElement field) {
   final fakerableValue =
-      const TypeChecker.fromRuntime(FakerableValue).firstAnnotationOf(field);
+      const TypeChecker.fromRuntime(FakerableValueAAA).firstAnnotationOf(field);
   if (fakerableValue == null) {
     //common string
     final fakerableString =
