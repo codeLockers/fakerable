@@ -31,3 +31,17 @@ String _handleDoubleField(FieldElement field) {
     return '$FakerInstanceName.$FakerRandomGeneratorMethod.decimal(scale: ${scale.doubleValue}, min: ${min.doubleValue}),';
   }
 }
+
+String _handleBoolField() {
+  // final fakerableInt =
+  //     const TypeChecker.fromRuntime(FakerableInt).firstAnnotationOf(field);
+  // if (fakerableInt == null) {
+  //   //default range is 0 ~ 100
+  //   return defaultIntFakerable;
+  // } else {
+  //   final reader = ConstantReader(fakerableInt);
+  //   final max = reader.read('max');
+  //   final min = reader.read('min');
+  return '$FakerInstanceName.$FakerRandomGeneratorMethod.boolean(),';
+  // }
+}

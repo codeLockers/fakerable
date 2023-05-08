@@ -19,6 +19,7 @@ extension StringConvertType on String {
   bool get isInt => this == 'int';
   bool get isDouble => this == 'double';
   bool get isString => this == 'String';
+  bool get isBool => this == 'bool';
   bool get isList => startsWith('List<');
   bool get isMap => startsWith('Map<');
 }

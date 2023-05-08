@@ -34,6 +34,10 @@ String _handleListElement(String elementType) {
     return _handleStringList();
   } else if (elementType.startsWith('List')) {
     return _handleDimensionsList(elementType);
+  } else if (elementType.isBool) {
+    return _handleBoolList(elementType);
+  } else if (elementType.isMap) {
+    return _handleMapList(elementType);
   }
   //custom type
   return _handleModelList(elementType);
@@ -84,12 +88,34 @@ String _handleModelList(String modelType) {
   return buffer.toString();
 }
 
+String _handleMapList(String modelType) {
+  final int loopCount = randomInt(minCount, maxCount);
+  StringBuffer buffer = StringBuffer();
+  buffer.writeln('[');
+  for (int i = 0; i < loopCount; i++) {
+    buffer.writeln(_parseMapInlineElement(modelType));
+  }
+  buffer.writeln('],');
+  return buffer.toString();
+}
+
 String _handleDimensionsList(String elementType) {
   final int loopCount = randomInt(minCount, maxCount);
   StringBuffer buffer = StringBuffer();
   buffer.writeln('[');
   for (int i = 0; i < loopCount; i++) {
     buffer.writeln(_handleListElement(_parseListInlineElement(elementType)));
+  }
+  buffer.writeln('],');
+  return buffer.toString();
+}
+
+String _handleBoolList(String elementType) {
+  final int loopCount = randomInt(minCount, maxCount);
+  StringBuffer buffer = StringBuffer();
+  buffer.writeln('[');
+  for (int i = 0; i < loopCount; i++) {
+    buffer.writeln(_handleBoolField());
   }
   buffer.writeln('],');
   return buffer.toString();

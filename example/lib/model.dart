@@ -20,6 +20,7 @@ class Model {
   final int age_copy;
   final double score_copy;
   final String text_copy;
+  final bool isOk;
 
   @fakerableInline
   final User user;
@@ -37,6 +38,7 @@ class Model {
   final List<double> listDouble;
   @FakerableList(6, 4)
   final List<String> listString;
+  final List<bool> listBool;
   @FakerableList(6, 4)
   final List<User> listUser;
 
@@ -54,9 +56,13 @@ class Model {
   @FakerableList(8, 3)
   final List<List<List<String>>> listssString;
 
+  final List<Map<int, int>> listMapInt;
+  final List<Map<int, Map<int, List<int>>>> listMapsListInt;
+
   final Map<String, int> mapStringInt;
   final Map<String, double> mapStringDouble;
   final Map<String, String> mapStringString;
+  final Map<bool, bool> mapBoolBool;
   final Map<int, String> mapIntString;
   final Map<double, String> mapDoubleString;
   final Map<String, User> mapStringUser;
@@ -100,6 +106,7 @@ class Model {
       required this.age_copy,
       required this.score_copy,
       required this.text_copy,
+      required this.isOk,
       required this.user,
       required this.image,
       required this.phone,
@@ -107,6 +114,7 @@ class Model {
       required this.listInt,
       required this.listDouble,
       required this.listString,
+      required this.listBool,
       required this.listUser,
       required this.listsInt,
       required this.listsDouble,
@@ -114,9 +122,12 @@ class Model {
       required this.listssInt,
       required this.listssDouble,
       required this.listssString,
+      required this.listMapInt,
+      required this.listMapsListInt,
       required this.mapStringInt,
       required this.mapStringDouble,
       required this.mapStringString,
+      required this.mapBoolBool,
       required this.mapIntString,
       required this.mapDoubleString,
       required this.mapIntUser,

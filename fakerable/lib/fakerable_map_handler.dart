@@ -54,6 +54,8 @@ String _keyGenerator(String keyType) {
   } else if (keyType.isList) {
     final key = _handleListElement(_parseListInlineElement(keyType));
     return key.substring(0, key.length - 2);
+  } else if (keyType.isBool) {
+    return '$FakerInstanceName.$FakerRandomGeneratorMethod.boolean()';
   } else if (keyType.isMap) {
     final key = _parseMapInlineElement(keyType);
     return key.substring(0, key.length - 2);
@@ -70,6 +72,8 @@ String _valueGenerator(String valueType) {
     return 'faker.randomGenerator.string(20, min: 0),';
   } else if (valueType.isList) {
     return '${_handleListElement(_parseListInlineElement(valueType))}';
+  } else if (valueType.isBool) {
+    return _handleBoolField();
   } else if (valueType.isMap) {
     return _parseMapInlineElement(valueType);
   }

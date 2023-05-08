@@ -48,6 +48,8 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
   String _handleField(FieldElement field) {
     if (field.type.isDartCoreString) {
       return _handleStringField(field);
+    } else if (field.type.isDartCoreBool) {
+      return _handleBoolField();
     } else if (field.type.isDartCoreInt) {
       return _handleIntField(field);
     } else if (field.type.isDartCoreDouble) {
