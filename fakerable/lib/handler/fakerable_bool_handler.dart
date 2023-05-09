@@ -1,4 +1,4 @@
-part of 'fakerable_generator.dart';
+part of '../fakerable_generator.dart';
 
 String _handleBoolField(FieldElement field) {
   final valueAnnotation =

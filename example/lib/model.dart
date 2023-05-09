@@ -30,6 +30,8 @@ class Model {
   @FakerableValue<bool>(false)
   final bool isOkValue;
 
+  final User user;
+
   // @FakerableString(100, min: 10)
   // final String text;
 
@@ -126,6 +128,7 @@ class Model {
     required this.scoreValueRange,
     required this.isOk,
     required this.isOkValue,
+    required this.user,
     // required this.text,
     // required this.age_copy,
     // required this.score_copy,

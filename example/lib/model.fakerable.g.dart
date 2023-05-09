@@ -20,5 +20,6 @@ Model _$ModelFakerable() {
     scoreValueRange: 0.4,
     isOk: faker.randomGenerator.boolean(),
     isOkValue: false,
+    user: User.fakerable(),
   );
 }

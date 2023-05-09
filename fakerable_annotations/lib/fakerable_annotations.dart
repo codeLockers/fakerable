@@ -22,11 +22,11 @@ class FakerableValue<T> {
 }
 
 //--------------
-class FakerableInline {
-  const FakerableInline();
-}
+// class FakerableInline {
+//   const FakerableInline();
+// }
 
-const fakerableInline = FakerableInline();
+// const fakerableInline = FakerableInline();
 
 class FakerableString {
   final int max;

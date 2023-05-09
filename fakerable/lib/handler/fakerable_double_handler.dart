@@ -1,4 +1,4 @@
-part of 'fakerable_generator.dart';
+part of '../fakerable_generator.dart';
 
 final String defaultIntFakerable =
     '$FakerInstanceName.$FakerRandomGeneratorMethod.integer(0, min: 100),';
