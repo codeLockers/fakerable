@@ -6,16 +6,14 @@ class Fakerable {
 
 const fakerable = Fakerable();
 
-class FakerableRange {
-  static const defaultMin = 10;
-  static const defaultMax = 10;
+class FakerableRange<T> {
+  // static const T defaultMin = 10;
+  // static const T defaultMax = 10;
 
-  final int min;
-  final int max;
+  final T min;
+  final T max;
 
-  const FakerableRange(
-      {this.min = FakerableRange.defaultMin,
-      this.max = FakerableRange.defaultMax});
+  const FakerableRange({required this.min, required this.max});
 }
 
 class FakerableValue<T> {

@@ -8,18 +8,23 @@ part 'model.fakerable.g.dart';
 
 @fakerable
 class Model {
-  @FakerableRange()
   final int age;
-  @FakerableRange(min: 6, max: 19)
+  @FakerableRange<int>(min: 6, max: 19)
   final int ageRange;
   @FakerableValue<int>(77)
   final int ageValue;
-  @FakerableRange()
+  @FakerableRange(min: 16, max: 29)
   @FakerableValue<int>(66)
   final int ageValueRange;
 
-  // @FakerableDouble(2, 2.9)
   // final double score;
+  // @FakerableRange<double>(min: 3.3, max: 9.8)
+  // final double scoreRange;
+  // @FakerableValue(10.4)
+  // final double scoreValue;
+  // @FakerableRange<double>(min: 1.3, max: 2.8)
+  // @FakerableValue(0.4)
+  // final double scoreValueRange;
 
   // @FakerableString(100, min: 10)
   // final String text;
@@ -106,70 +111,73 @@ class Model {
   //     mapMapsMapss;
   // final Map<Map<int, Map<int, Map<int, int>>>,
   //     Map<int, Map<int, Map<int, int>>>> mapMapssMapss;
-  const Model(
-      {required this.age,
-      required this.ageRange,
-      required this.ageValue,
-      required this.ageValueRange
-      // required this.score,
-      // required this.text,
-      // required this.age_copy,
-      // required this.score_copy,
-      // required this.text_copy,
-      // required this.isOk,
-      // required this.user,
-      // required this.image,
-      // required this.phone,
-      // required this.email,
-      // required this.listInt,
-      // required this.listDouble,
-      // required this.listString,
-      // required this.listBool,
-      // required this.listUser,
-      // required this.listsInt,
-      // required this.listsDouble,
-      // required this.listsString,
-      // required this.listssInt,
-      // required this.listssDouble,
-      // required this.listssString,
-      // required this.listMapInt,
-      // required this.listMapsListInt,
-      // required this.mapStringInt,
-      // required this.mapStringDouble,
-      // required this.mapStringString,
-      // required this.mapBoolBool,
-      // required this.mapIntString,
-      // required this.mapDoubleString,
-      // required this.mapIntUser,
-      // required this.mapStringUser,
-      // required this.mapDoubleUser,
-      // required this.mapUserString,
-      // required this.mapUserInt,
-      // required this.mapUserDouble,
-      // required this.mapDoubleList,
-      // required this.mapIntList,
-      // required this.mapStringList,
-      // required this.mapIntsList,
-      // required this.mapDoublessList,
-      // required this.mapStringsssList,
-      // required this.mapUserList,
-      // required this.mapUsersList,
-      // required this.mapListInt,
-      // required this.mapListDouble,
-      // required this.mapListString,
-      // required this.mapListUser,
-      // required this.mapListInts,
-      // required this.mapListUsers,
-      // required this.mapListDoubless,
-      // required this.mapListStringsss,
-      // required this.mapIntMap,
-      // required this.mapDoubleMap,
-      // required this.mapStringMap,
-      // required this.mapIntMaps,
-      // required this.mapIntMapss,
-      // required this.mapMapMapss,
-      // required this.mapMapsMapss,
-      // required this.mapMapssMapss
-      });
+  const Model({
+    required this.age,
+    required this.ageRange,
+    required this.ageValue,
+    required this.ageValueRange,
+    // required this.score,
+    // required this.scoreRange,
+    // required this.scoreValue,
+    // required this.scoreValueRange,
+    // required this.text,
+    // required this.age_copy,
+    // required this.score_copy,
+    // required this.text_copy,
+    // required this.isOk,
+    // required this.user,
+    // required this.image,
+    // required this.phone,
+    // required this.email,
+    // required this.listInt,
+    // required this.listDouble,
+    // required this.listString,
+    // required this.listBool,
+    // required this.listUser,
+    // required this.listsInt,
+    // required this.listsDouble,
+    // required this.listsString,
+    // required this.listssInt,
+    // required this.listssDouble,
+    // required this.listssString,
+    // required this.listMapInt,
+    // required this.listMapsListInt,
+    // required this.mapStringInt,
+    // required this.mapStringDouble,
+    // required this.mapStringString,
+    // required this.mapBoolBool,
+    // required this.mapIntString,
+    // required this.mapDoubleString,
+    // required this.mapIntUser,
+    // required this.mapStringUser,
+    // required this.mapDoubleUser,
+    // required this.mapUserString,
+    // required this.mapUserInt,
+    // required this.mapUserDouble,
+    // required this.mapDoubleList,
+    // required this.mapIntList,
+    // required this.mapStringList,
+    // required this.mapIntsList,
+    // required this.mapDoublessList,
+    // required this.mapStringsssList,
+    // required this.mapUserList,
+    // required this.mapUsersList,
+    // required this.mapListInt,
+    // required this.mapListDouble,
+    // required this.mapListString,
+    // required this.mapListUser,
+    // required this.mapListInts,
+    // required this.mapListUsers,
+    // required this.mapListDoubless,
+    // required this.mapListStringsss,
+    // required this.mapIntMap,
+    // required this.mapDoubleMap,
+    // required this.mapStringMap,
+    // required this.mapIntMaps,
+    // required this.mapIntMapss,
+    // required this.mapMapMapss,
+    // required this.mapMapsMapss,
+    // required this.mapMapssMapss
+  });
   factory Model.fakerable() => _$ModelFakerable();
 }

@@ -15,5 +15,5 @@ String _handleIntField(FieldElement field) {
     final min = reader.read('min');
     return '${FakerableConstants.integer}(${max.intValue}, min: ${min.intValue})';
   }
-  return '${FakerableConstants.integer}(${FakerableRange.defaultMax}, min: ${FakerableRange.defaultMin})';
+  return '${FakerableConstants.integer}(100, min: 0)';
 }
