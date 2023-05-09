@@ -13,5 +13,10 @@ Model _$ModelFakerable() {
     ageRange: faker.randomGenerator.integer(19, min: 6),
     ageValue: 77,
     ageValueRange: 66,
+    score: faker.randomGenerator.decimal(),
+    scoreRange:
+        faker.randomGenerator.decimal(scale: 6.500000000000001, min: 3.3),
+    scoreValue: 10.4,
+    scoreValueRange: 0.4,
   );
 }

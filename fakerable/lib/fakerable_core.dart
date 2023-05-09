@@ -14,6 +14,8 @@ class FakerableConstants {
   static String randomGenerator = 'randomGenerator';
   static String integer =
       '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.integer';
+  static String decimal =
+      '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.decimal';
 }
 
 int randomInt(int min, int max) {

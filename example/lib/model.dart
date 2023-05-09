@@ -17,14 +17,14 @@ class Model {
   @FakerableValue<int>(66)
   final int ageValueRange;
 
-  // final double score;
-  // @FakerableRange<double>(min: 3.3, max: 9.8)
-  // final double scoreRange;
-  // @FakerableValue(10.4)
-  // final double scoreValue;
-  // @FakerableRange<double>(min: 1.3, max: 2.8)
-  // @FakerableValue(0.4)
-  // final double scoreValueRange;
+  final double score;
+  @FakerableRange<double>(min: 3.3, max: 9.8)
+  final double scoreRange;
+  @FakerableValue(10.4)
+  final double scoreValue;
+  @FakerableRange<double>(min: 1.3, max: 2.8)
+  @FakerableValue(0.4)
+  final double scoreValueRange;
 
   // @FakerableString(100, min: 10)
   // final String text;
@@ -116,10 +116,10 @@ class Model {
     required this.ageRange,
     required this.ageValue,
     required this.ageValueRange,
-    // required this.score,
-    // required this.scoreRange,
-    // required this.scoreValue,
-    // required this.scoreValueRange,
+    required this.score,
+    required this.scoreRange,
+    required this.scoreValue,
+    required this.scoreValueRange,
     // required this.text,
     // required this.age_copy,
     // required this.score_copy,

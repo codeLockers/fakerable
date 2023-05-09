@@ -6,16 +6,21 @@ final String defaultDoubleFakerable =
     '$FakerInstanceName.$FakerRandomGeneratorMethod.decimal(),';
 
 String _handleDoubleField(FieldElement field) {
-  final fakerableDouble =
-      const TypeChecker.fromRuntime(FakerableDouble).firstAnnotationOf(field);
-  if (fakerableDouble == null) {
-    return defaultDoubleFakerable;
-  } else {
-    final reader = ConstantReader(fakerableDouble);
-    final scale = reader.read('scale');
+  final rangeAnnotation =
+      const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
+  final valueAnnotation =
+      const TypeChecker.fromRuntime(FakerableValue).firstAnnotationOf(field);
+  if (valueAnnotation != null) {
+    final reader = ConstantReader(valueAnnotation);
+    final value = reader.read('value');
+    return '${value.doubleValue}';
+  } else if (rangeAnnotation != null) {
+    final reader = ConstantReader(rangeAnnotation);
+    final max = reader.read('max');
     final min = reader.read('min');
-    return '$FakerInstanceName.$FakerRandomGeneratorMethod.decimal(scale: ${scale.doubleValue}, min: ${min.doubleValue}),';
+    return '${FakerableConstants.decimal}(scale: ${max.doubleValue - min.doubleValue}, min: ${min.doubleValue})';
   }
+  return '${FakerableConstants.decimal}()';
 }
 
 String _handleBoolField() {
