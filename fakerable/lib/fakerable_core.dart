@@ -9,6 +9,7 @@ String FakerRandomGeneratorMethod = 'randomGenerator';
 String errorPlaceholder = 'this type can not parse!!!';
 
 class FakerableConstants {
+  // ignore: non_constant_identifier_names
   static String Faker = 'Faker';
   static String faker = Faker.toLowerCase();
   static String randomGenerator = 'randomGenerator';
@@ -18,6 +19,12 @@ class FakerableConstants {
       '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.decimal';
   static String boolean =
       '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.boolean';
+  static String string =
+      '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.string';
+  static String internet = '${FakerableConstants.faker}.internet';
+  static String email = '${FakerableConstants.internet}.email';
+  static String phone = '${FakerableConstants.faker}.phoneNumber';
+  static String image = '${FakerableConstants.faker}.image.image';
 }
 
 int randomInt(int min, int max) {

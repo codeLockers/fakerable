@@ -21,5 +21,12 @@ Model _$ModelFakerable() {
     isOk: faker.randomGenerator.boolean(),
     isOkValue: false,
     user: User.fakerable(),
+    text: faker.randomGenerator.string(20, min: 0),
+    textRange: faker.randomGenerator.string(15, min: 2),
+    textValue: 'wiredcraft',
+    textValueRange: 'wiredcraft2',
+    textValueSpecialEmail: faker.internet.email(),
+    textValueSpecialImage: faker.image.image(),
+    textValueSpecialPhone: faker.phoneNumber.us(),
   );
 }

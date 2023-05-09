@@ -7,9 +7,6 @@ class Fakerable {
 const fakerable = Fakerable();
 
 class FakerableRange<T> {
-  // static const T defaultMin = 10;
-  // static const T defaultMax = 10;
-
   final T min;
   final T max;
 
@@ -21,12 +18,18 @@ class FakerableValue<T> {
   const FakerableValue(this.value);
 }
 
-//--------------
-// class FakerableInline {
-//   const FakerableInline();
-// }
+enum FakerableSpecial {
+  image,
+  phone,
+  email;
 
-// const fakerableInline = FakerableInline();
+  static FakerableSpecial type(String name) =>
+      FakerableSpecial.values.firstWhere((type) => type.name == name);
+}
+
+//--------------
+//--------------
+//--------------
 
 class FakerableString {
   final int max;
@@ -50,19 +53,4 @@ class FakerableList {
   final int max;
   final int min;
   const FakerableList(this.max, this.min);
-}
-
-enum FakerableValueType {
-  image,
-  phone,
-  email;
-
-  static FakerableValueType type(String name) =>
-      FakerableValueType.values.firstWhere((type) => type.name == name);
-}
-
-class FakerableValueAAA {
-  final FakerableValueType type;
-
-  const FakerableValueAAA(this.type);
 }

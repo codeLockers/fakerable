@@ -32,8 +32,23 @@ class Model {
 
   final User user;
 
+  final String text;
+  @FakerableRange<int>(min: 2, max: 15)
+  final String textRange;
+  @FakerableValue<String>('wiredcraft')
+  final String textValue;
+  @FakerableRange<int>(min: 1, max: 5)
+  @FakerableValue<String>('wiredcraft2')
+  final String textValueRange;
+
+  @FakerableValue<FakerableSpecial>(FakerableSpecial.email)
+  final String textValueSpecialEmail;
+  @FakerableValue<FakerableSpecial>(FakerableSpecial.image)
+  final String textValueSpecialImage;
+  @FakerableValue<FakerableSpecial>(FakerableSpecial.phone)
+  final String textValueSpecialPhone;
+
   // @FakerableString(100, min: 10)
-  // final String text;
 
   // final int age_copy;
   // final double score_copy;
@@ -129,7 +144,13 @@ class Model {
     required this.isOk,
     required this.isOkValue,
     required this.user,
-    // required this.text,
+    required this.text,
+    required this.textRange,
+    required this.textValue,
+    required this.textValueRange,
+    required this.textValueSpecialEmail,
+    required this.textValueSpecialImage,
+    required this.textValueSpecialPhone,
     // required this.age_copy,
     // required this.score_copy,
     // required this.text_copy,
