@@ -115,7 +115,7 @@ String _handleBoolList(String elementType) {
   StringBuffer buffer = StringBuffer();
   buffer.writeln('[');
   for (int i = 0; i < loopCount; i++) {
-    buffer.writeln(_handleBoolField());
+    // buffer.writeln(_handleBoolField());
   }
   buffer.writeln('],');
   return buffer.toString();

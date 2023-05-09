@@ -73,7 +73,7 @@ String _valueGenerator(String valueType) {
   } else if (valueType.isList) {
     return '${_handleListElement(_parseListInlineElement(valueType))}';
   } else if (valueType.isBool) {
-    return _handleBoolField();
+    // return _handleBoolField();
   } else if (valueType.isMap) {
     return _parseMapInlineElement(valueType);
   }

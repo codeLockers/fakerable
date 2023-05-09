@@ -16,6 +16,8 @@ class FakerableConstants {
       '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.integer';
   static String decimal =
       '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.decimal';
+  static String boolean =
+      '${FakerableConstants.faker}.${FakerableConstants.randomGenerator}.boolean';
 }
 
 int randomInt(int min, int max) {

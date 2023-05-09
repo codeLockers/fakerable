@@ -18,5 +18,7 @@ Model _$ModelFakerable() {
         faker.randomGenerator.decimal(scale: 6.500000000000001, min: 3.3),
     scoreValue: 10.4,
     scoreValueRange: 0.4,
+    isOk: faker.randomGenerator.boolean(),
+    isOkValue: false,
   );
 }
