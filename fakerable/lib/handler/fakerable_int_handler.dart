@@ -1,6 +1,9 @@
 part of '../fakerable_generator.dart';
 
-String _handleIntField(FieldElement field) {
+String _handleIntField({FieldElement? field}) {
+  if (field == null) {
+    return '${FakerableConstants.integer}(100, min: 0)';
+  }
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
   final valueAnnotation =

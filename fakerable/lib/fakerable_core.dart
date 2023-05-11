@@ -43,4 +43,15 @@ extension StringConvertType on String {
   bool get isMap => startsWith('Map<');
 
   String get commable => '$this,';
+
+  String get listElementType {
+    if (!isList) {
+      return '';
+    }
+    final int startIndex = indexOf('<') + '<'.length;
+    final int endIndex = lastIndexOf('>');
+    return substring(startIndex, endIndex);
+  }
+
+  String get listZip => '[$this]';
 }

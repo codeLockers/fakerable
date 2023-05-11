@@ -3,7 +3,10 @@ part of '../fakerable_generator.dart';
 final String defaultStringFakerable =
     '$FakerInstanceName.$FakerRandomGeneratorMethod.string(20, min: 0),';
 
-String _handleStringField(FieldElement field) {
+String _handleStringField({FieldElement? field}) {
+  if (field == null) {
+    return '${FakerableConstants.string}(20, min: 0)';
+  }
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
   final valueAnnotation =

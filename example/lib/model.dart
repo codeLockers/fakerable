@@ -48,6 +48,26 @@ class Model {
   @FakerableValue<FakerableSpecial>(FakerableSpecial.phone)
   final String textValueSpecialPhone;
 
+  final List<int> listInt;
+  @FakerableRange(min: 0, max: 2)
+  final List<double> listDouble;
+  @FakerableRange(min: 1, max: 3)
+  final List<String> listString;
+  @FakerableRange(min: 2, max: 4)
+  final List<bool> listBool;
+  @FakerableRange(min: 3, max: 5)
+  final List<User> listUser;
+
+  final List<List<int>> listsInt;
+  @FakerableRange(min: 0, max: 2)
+  final List<List<double>> listsDouble;
+  @FakerableRange(min: 1, max: 3)
+  final List<List<String>> listsString;
+  @FakerableRange(min: 2, max: 4)
+  final List<List<bool>> listsBool;
+  @FakerableRange(min: 3, max: 5)
+  final List<List<User>> listsUser;
+
   // @FakerableString(100, min: 10)
 
   // final int age_copy;
@@ -132,82 +152,92 @@ class Model {
   //     mapMapsMapss;
   // final Map<Map<int, Map<int, Map<int, int>>>,
   //     Map<int, Map<int, Map<int, int>>>> mapMapssMapss;
-  const Model({
-    required this.age,
-    required this.ageRange,
-    required this.ageValue,
-    required this.ageValueRange,
-    required this.score,
-    required this.scoreRange,
-    required this.scoreValue,
-    required this.scoreValueRange,
-    required this.isOk,
-    required this.isOkValue,
-    required this.user,
-    required this.text,
-    required this.textRange,
-    required this.textValue,
-    required this.textValueRange,
-    required this.textValueSpecialEmail,
-    required this.textValueSpecialImage,
-    required this.textValueSpecialPhone,
-    // required this.age_copy,
-    // required this.score_copy,
-    // required this.text_copy,
-    // required this.isOk,
-    // required this.user,
-    // required this.image,
-    // required this.phone,
-    // required this.email,
-    // required this.listInt,
-    // required this.listDouble,
-    // required this.listString,
-    // required this.listBool,
-    // required this.listUser,
-    // required this.listsInt,
-    // required this.listsDouble,
-    // required this.listsString,
-    // required this.listssInt,
-    // required this.listssDouble,
-    // required this.listssString,
-    // required this.listMapInt,
-    // required this.listMapsListInt,
-    // required this.mapStringInt,
-    // required this.mapStringDouble,
-    // required this.mapStringString,
-    // required this.mapBoolBool,
-    // required this.mapIntString,
-    // required this.mapDoubleString,
-    // required this.mapIntUser,
-    // required this.mapStringUser,
-    // required this.mapDoubleUser,
-    // required this.mapUserString,
-    // required this.mapUserInt,
-    // required this.mapUserDouble,
-    // required this.mapDoubleList,
-    // required this.mapIntList,
-    // required this.mapStringList,
-    // required this.mapIntsList,
-    // required this.mapDoublessList,
-    // required this.mapStringsssList,
-    // required this.mapUserList,
-    // required this.mapUsersList,
-    // required this.mapListInt,
-    // required this.mapListDouble,
-    // required this.mapListString,
-    // required this.mapListUser,
-    // required this.mapListInts,
-    // required this.mapListUsers,
-    // required this.mapListDoubless,
-    // required this.mapListStringsss,
-    // required this.mapIntMap,
-    // required this.mapDoubleMap,
-    // required this.mapStringMap,
-    // required this.mapIntMaps,
-    // required this.mapIntMapss,
-    // required this.mapMapMapss,
-    // required this.mapMapsMapss,
-    // required this.mapMapssMapss
-  });
+  const Model(
+      {required this.age,
+      required this.ageRange,
+      required this.ageValue,
+      required this.ageValueRange,
+      required this.score,
+      required this.scoreRange,
+      required this.scoreValue,
+      required this.scoreValueRange,
+      required this.isOk,
+      required this.isOkValue,
+      required this.user,
+      required this.text,
+      required this.textRange,
+      required this.textValue,
+      required this.textValueRange,
+      required this.textValueSpecialEmail,
+      required this.textValueSpecialImage,
+      required this.textValueSpecialPhone,
+      required this.listInt,
+      required this.listDouble,
+      required this.listBool,
+      required this.listString,
+      required this.listUser,
+      required this.listsInt,
+      required this.listsDouble,
+      required this.listsBool,
+      required this.listsString,
+      required this.listsUser
+      // required this.age_copy,
+      // required this.score_copy,
+      // required this.text_copy,
+      // required this.isOk,
+      // required this.user,
+      // required this.image,
+      // required this.phone,
+      // required this.email,
+      // required this.listInt,
+      // required this.listDouble,
+      // required this.listString,
+      // required this.listBool,
+      // required this.listUser,
+      // required this.listsInt,
+      // required this.listsDouble,
+      // required this.listsString,
+      // required this.listssInt,
+      // required this.listssDouble,
+      // required this.listssString,
+      // required this.listMapInt,
+      // required this.listMapsListInt,
+      // required this.mapStringInt,
+      // required this.mapStringDouble,
+      // required this.mapStringString,
+      // required this.mapBoolBool,
+      // required this.mapIntString,
+      // required this.mapDoubleString,
+      // required this.mapIntUser,
+      // required this.mapStringUser,
+      // required this.mapDoubleUser,
+      // required this.mapUserString,
+      // required this.mapUserInt,
+      // required this.mapUserDouble,
+      // required this.mapDoubleList,
+      // required this.mapIntList,
+      // required this.mapStringList,
+      // required this.mapIntsList,
+      // required this.mapDoublessList,
+      // required this.mapStringsssList,
+      // required this.mapUserList,
+      // required this.mapUsersList,
+      // required this.mapListInt,
+      // required this.mapListDouble,
+      // required this.mapListString,
+      // required this.mapListUser,
+      // required this.mapListInts,
+      // required this.mapListUsers,
+      // required this.mapListDoubless,
+      // required this.mapListStringsss,
+      // required this.mapIntMap,
+      // required this.mapDoubleMap,
+      // required this.mapStringMap,
+      // required this.mapIntMaps,
+      // required this.mapIntMapss,
+      // required this.mapMapMapss,
+      // required this.mapMapsMapss,
+      // required this.mapMapssMapss
+      });
   factory Model.fakerable() => _$ModelFakerable();
 }

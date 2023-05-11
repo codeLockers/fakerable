@@ -5,7 +5,10 @@ final String defaultIntFakerable =
 final String defaultDoubleFakerable =
     '$FakerInstanceName.$FakerRandomGeneratorMethod.decimal(),';
 
-String _handleDoubleField(FieldElement field) {
+String _handleDoubleField({FieldElement? field}) {
+  if (field == null) {
+    return '${FakerableConstants.decimal}()';
+  }
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
   final valueAnnotation =
