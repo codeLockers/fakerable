@@ -12,7 +12,7 @@ import 'package:faker/faker.dart';
 
 import 'fakerable_core.dart';
 
-part 'fakerable_list_handler.dart';
+part 'handler/fakerable_list_handler.dart';
 part 'handler/fakerable_string_handler.dart';
 part 'handler/fakerable_double_handler.dart';
 part 'handler/fakerable_int_handler.dart';
