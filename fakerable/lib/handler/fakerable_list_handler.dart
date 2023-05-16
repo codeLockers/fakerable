@@ -32,20 +32,11 @@ String _fakerList(String elementType, int min, int max) {
     } else if (elementType.isList) {
       buffer
           .writeln(_fakerList(elementType.listElementType, min, max).commable);
+    } else if (elementType.isMap) {
+      buffer.writeln(_fakerMap(elementType, min, max).commable);
     } else {
       buffer.writeln(_handleObjectField(elementType).commable);
     }
   }
   return buffer.toString().listZip;
-}
-
-String _handleMapList(String modelType) {
-  final int loopCount = randomInt(minCount, maxCount);
-  StringBuffer buffer = StringBuffer();
-  buffer.writeln('[');
-  for (int i = 0; i < loopCount; i++) {
-    buffer.writeln(_parseMapInlineElement(modelType));
-  }
-  buffer.writeln('],');
-  return buffer.toString();
 }

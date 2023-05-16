@@ -68,6 +68,29 @@ class Model {
   @FakerableRange(min: 3, max: 5)
   final List<List<User>> listsUser;
 
+  @FakerableRange(min: 1, max: 2)
+  final List<Map<String, String>> listMapStringString;
+
+  final Map<String, String> mapStringString;
+  @FakerableRange(min: 0, max: 2)
+  final Map<double, double> mapDoubleDouble;
+  @FakerableRange(min: 1, max: 3)
+  final Map<bool, bool> mapBoolBool;
+  @FakerableRange(min: 3, max: 5)
+  final Map<int, int> mapIntInt;
+  @FakerableRange(min: 4, max: 6)
+  final Map<User, User> mapUserUser;
+
+  @FakerableRange(min: 0, max: 2)
+  final Map<List<String>, List<String>> mapListStringListString;
+  @FakerableRange(min: 1, max: 2)
+  final Map<List<int>, List<int>> mapListsIntListsInt;
+
+  @FakerableRange(min: 1, max: 2)
+  final Map<Map<String, String>, Map<bool, bool>> mapMapStringStringMapBoolBool;
+
+  // @FakerableRange(min: 1, max: 3)
+  // final Map<List<String>, List<bool>> mapBoolInt;
   // @FakerableString(100, min: 10)
 
   // final int age_copy;
@@ -180,7 +203,16 @@ class Model {
       required this.listsDouble,
       required this.listsBool,
       required this.listsString,
-      required this.listsUser
+      required this.listsUser,
+      required this.listMapStringString,
+      required this.mapBoolBool,
+      required this.mapDoubleDouble,
+      required this.mapStringString,
+      required this.mapIntInt,
+      required this.mapUserUser,
+      required this.mapListStringListString,
+      required this.mapListsIntListsInt,
+      required this.mapMapStringStringMapBoolBool
       // required this.age_copy,
       // required this.score_copy,
       // required this.text_copy,

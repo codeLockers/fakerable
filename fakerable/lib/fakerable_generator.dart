@@ -18,7 +18,7 @@ part 'handler/fakerable_double_handler.dart';
 part 'handler/fakerable_int_handler.dart';
 part 'handler/fakerable_bool_handler.dart';
 part 'handler/fakerable_object_handler.dart';
-part 'fakerable_map_handler.dart';
+part 'handler/fakerable_map_handler.dart';
 
 class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
   final Faker faker = Faker();
@@ -59,7 +59,7 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
     } else if (field.type.isDartCoreList) {
       return _handleListField(field).commable;
     } else if (field.type.isDartCoreMap) {
-      return _handleMapField(field);
+      return _handleMapField(field).commable;
     }
     return _handleObjectField(field.type.toString()).commable;
   }

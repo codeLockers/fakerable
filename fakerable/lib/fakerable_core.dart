@@ -54,4 +54,36 @@ extension StringConvertType on String {
   }
 
   String get listZip => '[$this]';
+
+  String get mapKeyType {
+    int startIndex = indexOf('<') + '<'.length;
+    int endIndex = lastIndexOf('>');
+    final combineType = substring(startIndex, endIndex);
+    if (combineType.contains('>,')) {
+      int index = combineType.indexOf('>,') + '>,'.length;
+      return combineType.substring(0, index - ','.length);
+    } else {
+      int index = combineType.indexOf(',') + ','.length;
+      return combineType.substring(0, index - ','.length);
+    }
+  }
+
+  String get mapValueType {
+    int startIndex = indexOf('<') + '<'.length;
+    int endIndex = lastIndexOf('>');
+    final combineType = substring(startIndex, endIndex);
+    if (combineType.contains('>,')) {
+      int index = combineType.indexOf('>,') + '>,'.length;
+      return combineType
+          .substring(index, combineType.length)
+          .replaceAll(' ', '');
+    } else {
+      int index = combineType.indexOf(',') + ','.length;
+      return combineType
+          .substring(index, combineType.length)
+          .replaceAll(' ', '');
+    }
+  }
+
+  String get mapZip => '{$this}';
 }
