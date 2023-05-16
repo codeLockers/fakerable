@@ -1,13 +1,5 @@
 import 'dart:math';
 
-const String FakerClassName = 'Faker';
-String FakerInstanceName = FakerClassName.toLowerCase();
-const String FakerableClassName = 'Fakerable';
-String FakerableMethodName = FakerableClassName.toLowerCase();
-String FakerRandomGeneratorMethod = 'randomGenerator';
-
-String errorPlaceholder = 'this type can not parse!!!';
-
 class FakerableConstants {
   // ignore: non_constant_identifier_names
   static String Faker = 'Faker';

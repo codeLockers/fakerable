@@ -35,7 +35,7 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
     classBuffer
         .writeln('${visitor.className} _\$${visitor.className}Fakerable() {');
     classBuffer.writeln(
-        'final $FakerClassName $FakerInstanceName = $FakerClassName();');
+        'final ${FakerableConstants.Faker} ${FakerableConstants.faker} = ${FakerableConstants.Faker}();');
     classBuffer.writeln('return ${visitor.className}(');
 
     for (var field in visitor.fields) {

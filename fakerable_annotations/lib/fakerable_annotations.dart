@@ -13,6 +13,9 @@ class FakerableRange<T> {
   const FakerableRange({required this.min, required this.max});
 }
 
+// ignore: constant_identifier_names
+const DEFAULT_RANGE = FakerableRange<int>(min: 0, max: 5);
+
 class FakerableValue<T> {
   final T value;
   const FakerableValue(this.value);
@@ -25,32 +28,4 @@ enum FakerableSpecial {
 
   static FakerableSpecial type(String name) =>
       FakerableSpecial.values.firstWhere((type) => type.name == name);
-}
-
-//--------------
-//--------------
-//--------------
-
-class FakerableString {
-  final int max;
-  final int min;
-  const FakerableString(this.max, {this.min = 1});
-}
-
-class FakerableInt {
-  final int max;
-  final int min;
-  const FakerableInt(this.max, {this.min = 0});
-}
-
-class FakerableDouble {
-  final double scale;
-  final double min;
-  const FakerableDouble(this.scale, this.min);
-}
-
-class FakerableList {
-  final int max;
-  final int min;
-  const FakerableList(this.max, this.min);
 }

@@ -1,11 +1,8 @@
 part of '../fakerable_generator.dart';
 
-final String defaultStringFakerable =
-    '$FakerInstanceName.$FakerRandomGeneratorMethod.string(20, min: 0),';
-
 String _handleStringField({FieldElement? field}) {
   if (field == null) {
-    return '${FakerableConstants.string}(20, min: 0)';
+    return '${FakerableConstants.string}(${DEFAULT_RANGE.max}, min: ${DEFAULT_RANGE.min})';
   }
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
@@ -28,7 +25,7 @@ String _handleStringField({FieldElement? field}) {
           return '${FakerableConstants.phone}.us()';
       }
     }
-    return '${FakerableConstants.string}(20, min: 0)';
+    return '${FakerableConstants.string}(${DEFAULT_RANGE.max}, min: ${DEFAULT_RANGE.min})';
   } else if (rangeAnnotation != null) {
     final reader = ConstantReader(rangeAnnotation);
     final max = reader.read('max');
@@ -36,5 +33,5 @@ String _handleStringField({FieldElement? field}) {
     return '${FakerableConstants.string}(${max.intValue}, min: ${min.intValue})';
   }
   faker.image.image();
-  return '${FakerableConstants.string}(20, min: 0)';
+  return '${FakerableConstants.string}(${DEFAULT_RANGE.max}, min: ${DEFAULT_RANGE.min})';
 }

@@ -1,10 +1,5 @@
 part of '../fakerable_generator.dart';
 
-final String defaultIntFakerable =
-    '$FakerInstanceName.$FakerRandomGeneratorMethod.integer(0, min: 100),';
-final String defaultDoubleFakerable =
-    '$FakerInstanceName.$FakerRandomGeneratorMethod.decimal(),';
-
 String _handleDoubleField({FieldElement? field}) {
   if (field == null) {
     return '${FakerableConstants.decimal}()';

@@ -2,7 +2,7 @@ part of '../fakerable_generator.dart';
 
 String _handleIntField({FieldElement? field}) {
   if (field == null) {
-    return '${FakerableConstants.integer}(100, min: 0)';
+    return '${FakerableConstants.integer}(${DEFAULT_RANGE.max}, min: ${DEFAULT_RANGE.min})';
   }
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
@@ -18,5 +18,5 @@ String _handleIntField({FieldElement? field}) {
     final min = reader.read('min');
     return '${FakerableConstants.integer}(${max.intValue}, min: ${min.intValue})';
   }
-  return '${FakerableConstants.integer}(100, min: 0)';
+  return '${FakerableConstants.integer}(${DEFAULT_RANGE.max}, min: ${DEFAULT_RANGE.min})';
 }

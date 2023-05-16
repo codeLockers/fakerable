@@ -9,7 +9,7 @@ part of 'model.dart';
 Model _$ModelFakerable() {
   final Faker faker = Faker();
   return Model(
-    age: faker.randomGenerator.integer(100, min: 0),
+    age: faker.randomGenerator.integer(5, min: 0),
     ageRange: faker.randomGenerator.integer(19, min: 6),
     ageValue: 77,
     ageValueRange: 66,
@@ -21,7 +21,7 @@ Model _$ModelFakerable() {
     isOk: faker.randomGenerator.boolean(),
     isOkValue: false,
     user: User.fakerable(),
-    text: faker.randomGenerator.string(20, min: 0),
+    text: faker.randomGenerator.string(5, min: 0),
     textRange: faker.randomGenerator.string(15, min: 2),
     textValue: 'wiredcraft',
     textValueRange: 'wiredcraft2',
@@ -29,15 +29,14 @@ Model _$ModelFakerable() {
     textValueSpecialImage: faker.image.image(),
     textValueSpecialPhone: faker.phoneNumber.us(),
     listInt: [
-      faker.randomGenerator.integer(100, min: 0),
-      faker.randomGenerator.integer(100, min: 0),
+      faker.randomGenerator.integer(5, min: 0),
     ],
     listDouble: [],
     listString: [
-      faker.randomGenerator.string(20, min: 0),
-      faker.randomGenerator.string(20, min: 0),
+      faker.randomGenerator.string(5, min: 0),
     ],
     listBool: [
+      faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
     ],
@@ -48,45 +47,14 @@ Model _$ModelFakerable() {
       User.fakerable(),
     ],
     listsInt: [
-      [
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-      ],
       [],
-      [
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-      ],
-      [
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-        faker.randomGenerator.integer(100, min: 0),
-      ],
-      [
-        faker.randomGenerator.integer(100, min: 0),
-      ],
     ],
     listsDouble: [
       [],
     ],
     listsString: [
       [
-        faker.randomGenerator.string(20, min: 0),
-        faker.randomGenerator.string(20, min: 0),
-      ],
-      [
-        faker.randomGenerator.string(20, min: 0),
-        faker.randomGenerator.string(20, min: 0),
+        faker.randomGenerator.string(5, min: 0),
       ],
     ],
     listsBool: [
@@ -96,6 +64,11 @@ Model _$ModelFakerable() {
         faker.randomGenerator.boolean(),
       ],
       [
+        faker.randomGenerator.boolean(),
+        faker.randomGenerator.boolean(),
+      ],
+      [
+        faker.randomGenerator.boolean(),
         faker.randomGenerator.boolean(),
         faker.randomGenerator.boolean(),
       ],
@@ -111,6 +84,7 @@ Model _$ModelFakerable() {
         User.fakerable(),
         User.fakerable(),
         User.fakerable(),
+        User.fakerable(),
       ],
       [
         User.fakerable(),
@@ -118,35 +92,34 @@ Model _$ModelFakerable() {
         User.fakerable(),
         User.fakerable(),
       ],
+      [
+        User.fakerable(),
+        User.fakerable(),
+        User.fakerable(),
+      ],
     ],
     listMapStringString: [
       {
-        faker.randomGenerator.string(20, min: 0):
-            faker.randomGenerator.string(20, min: 0),
+        faker.randomGenerator.string(5, min: 0):
+            faker.randomGenerator.string(5, min: 0),
       },
     ],
-    mapStringString: {
-      faker.randomGenerator.string(20, min: 0):
-          faker.randomGenerator.string(20, min: 0),
-      faker.randomGenerator.string(20, min: 0):
-          faker.randomGenerator.string(20, min: 0),
-      faker.randomGenerator.string(20, min: 0):
-          faker.randomGenerator.string(20, min: 0),
-      faker.randomGenerator.string(20, min: 0):
-          faker.randomGenerator.string(20, min: 0),
+    mapStringString: {},
+    mapDoubleDouble: {
+      faker.randomGenerator.decimal(): faker.randomGenerator.decimal(),
     },
-    mapDoubleDouble: {},
     mapBoolBool: {
-      faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
     },
     mapIntInt: {
-      faker.randomGenerator.integer(100, min: 0):
-          faker.randomGenerator.integer(100, min: 0),
-      faker.randomGenerator.integer(100, min: 0):
-          faker.randomGenerator.integer(100, min: 0),
-      faker.randomGenerator.integer(100, min: 0):
-          faker.randomGenerator.integer(100, min: 0),
+      faker.randomGenerator.integer(5, min: 0):
+          faker.randomGenerator.integer(5, min: 0),
+      faker.randomGenerator.integer(5, min: 0):
+          faker.randomGenerator.integer(5, min: 0),
+      faker.randomGenerator.integer(5, min: 0):
+          faker.randomGenerator.integer(5, min: 0),
+      faker.randomGenerator.integer(5, min: 0):
+          faker.randomGenerator.integer(5, min: 0),
     },
     mapUserUser: {
       User.fakerable(): User.fakerable(),
@@ -155,18 +128,22 @@ Model _$ModelFakerable() {
       User.fakerable(): User.fakerable(),
       User.fakerable(): User.fakerable(),
     },
-    mapListStringListString: {},
+    mapListStringListString: {
+      []: [
+        faker.randomGenerator.string(5, min: 0),
+      ],
+    },
     mapListsIntListsInt: {
       [
-        faker.randomGenerator.integer(100, min: 0),
+        faker.randomGenerator.integer(5, min: 0),
       ]: [
-        faker.randomGenerator.integer(100, min: 0),
+        faker.randomGenerator.integer(5, min: 0),
       ],
     },
     mapMapStringStringMapBoolBool: {
       {
-        faker.randomGenerator.string(20, min: 0):
-            faker.randomGenerator.string(20, min: 0),
+        faker.randomGenerator.string(5, min: 0):
+            faker.randomGenerator.string(5, min: 0),
       }: {
         faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
       },

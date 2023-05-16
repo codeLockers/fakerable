@@ -3,8 +3,8 @@ part of '../fakerable_generator.dart';
 String _handleMapField(FieldElement field) {
   final rangeAnnotation =
       const TypeChecker.fromRuntime(FakerableRange).firstAnnotationOf(field);
-  int max = 10;
-  int min = 0;
+  int max = DEFAULT_RANGE.max;
+  int min = DEFAULT_RANGE.min;
   if (rangeAnnotation != null) {
     final reader = ConstantReader(rangeAnnotation);
     max = reader.read('max').intValue;
@@ -48,5 +48,5 @@ String _fakerType(String type, int min, int max) {
   } else if (type.isMap) {
     return _fakerMap(type, min, max);
   }
-  return '$type.fakerable()';
+  return _handleObjectField(type);
 }
