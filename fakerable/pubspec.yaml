@@ -23,6 +23,9 @@ dependencies:
       ref: master
       path: fakerable_annotations/
 
+  # fakerable_annotations:
+  #   path: ../fakerable_annotations/
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
