@@ -87,6 +87,68 @@ class Model {
   @FakerableRange(min: 1, max: 2)
   final Map<Map<String, String>, Map<bool, bool>> mapMapStringStringMapBoolBool;
 
+  //nullable
+  final int? intNullable1;
+  @FakerableRange(min: 10, max: 15)
+  final int? intNullable2;
+  final int? intNullable3;
+  @FakerableValue(null)
+  final int? intNullable4;
+
+  final double? doubleNullable1;
+  @FakerableRange<double>(min: 9.7, max: 11.5)
+  final double? doubleNullable2;
+  final double? doubleNullable3;
+  @FakerableValue(null)
+  final double? doubleNullable4;
+
+  final bool? boolNullable1;
+  final bool? boolNullable2;
+  final bool? boolNullable3;
+  @FakerableValue(null)
+  final bool? boolNullable4;
+
+  final String? stringNullable1;
+  @FakerableRange<int>(min: 3, max: 6)
+  final String? stringNullable2;
+  final String? stringNullable3;
+  @FakerableValue(null)
+  final String? stringNullable4;
+
+  final User? userNullable1;
+  final User? userNullable2;
+
+  final List<int?>? intListNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<int?>? intListNullable2;
+  final List<int?>? intListNullable3;
+
+  final List<double?>? doubleListNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<double?>? doubleListNullable2;
+  final List<double?>? doubleListNullable3;
+
+  final List<String?>? stringListNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<String?>? stringListNullable2;
+  final List<String?>? stringListNullable3;
+
+  final List<User?>? userListNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<User?>? userListNullable2;
+  final List<User?>? userListNullable3;
+
+  final List<List<int?>?>? intListsNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<List<double?>?>? doubleListsNullable2;
+  final List<List<String?>?>? stringListsNullable3;
+
+  final List<Map<int?, double>?>? mapIntDoubleListNullable1;
+  @FakerableRange(min: 2, max: 4)
+  final List<Map<String?, bool?>?>? mapStringBoolListNullable2;
+  final List<Map<Map<int?, int?>, List<String?>>?>?
+      mapIntIntListStringListNullable3;
+
   const Model(
       {required this.age,
       required this.ageRange,
@@ -124,6 +186,42 @@ class Model {
       required this.mapUserUser,
       required this.mapListStringListString,
       required this.mapListsIntListsInt,
-      required this.mapMapStringStringMapBoolBool});
+      required this.mapMapStringStringMapBoolBool,
+      required this.intNullable1,
+      required this.intNullable2,
+      required this.intNullable3,
+      required this.intNullable4,
+      required this.doubleNullable1,
+      required this.doubleNullable2,
+      required this.doubleNullable3,
+      required this.doubleNullable4,
+      required this.boolNullable1,
+      required this.boolNullable2,
+      required this.boolNullable3,
+      required this.boolNullable4,
+      required this.stringNullable1,
+      required this.stringNullable2,
+      required this.stringNullable3,
+      required this.stringNullable4,
+      required this.userNullable1,
+      required this.userNullable2,
+      required this.intListNullable1,
+      required this.intListNullable2,
+      required this.intListNullable3,
+      required this.doubleListNullable1,
+      required this.doubleListNullable2,
+      required this.doubleListNullable3,
+      required this.stringListNullable1,
+      required this.stringListNullable2,
+      required this.stringListNullable3,
+      required this.userListNullable1,
+      required this.userListNullable2,
+      required this.userListNullable3,
+      required this.intListsNullable1,
+      required this.doubleListsNullable2,
+      required this.stringListsNullable3,
+      required this.mapIntDoubleListNullable1,
+      required this.mapStringBoolListNullable2,
+      required this.mapIntIntListStringListNullable3});
   factory Model.fakerable() => _$ModelFakerable();
 }

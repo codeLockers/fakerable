@@ -10,8 +10,9 @@ String _handleListField(FieldElement field) {
     max = reader.read('max').intValue;
     min = reader.read('min').intValue;
   }
-  final String elementType = field.declaration.type.toString().listElementType;
-  return _fakerList(elementType, min, max);
+  return field.typeName.isNull
+      ? FakerableConstants.nullString
+      : _fakerList(field.typeName.listElementType, min, max);
 }
 
 String _fakerList(String elementType, int min, int max) {
@@ -19,18 +20,21 @@ String _fakerList(String elementType, int min, int max) {
   StringBuffer buffer = StringBuffer();
   for (int i = 0; i < listLength; i++) {
     if (elementType.isInt) {
-      buffer.writeln(_handleIntField().commable);
+      buffer.writeln(_handleIntTypeString(elementType).commable);
     } else if (elementType.isDouble) {
-      buffer.writeln(_handleDoubleField().commable);
+      buffer.writeln(_handleDoubleTypeString(elementType).commable);
     } else if (elementType.isBool) {
-      buffer.writeln(_handleBoolField().commable);
+      buffer.writeln(_handleBoolTypeString(elementType).commable);
     } else if (elementType.isString) {
-      buffer.writeln(_handleStringField().commable);
+      buffer.writeln(_handleStringTypeString(elementType).commable);
     } else if (elementType.isList) {
-      buffer
-          .writeln(_fakerList(elementType.listElementType, min, max).commable);
+      buffer.writeln(elementType.isNull
+          ? FakerableConstants.nullString.commable
+          : _fakerList(elementType.listElementType, min, max).commable);
     } else if (elementType.isMap) {
-      buffer.writeln(_fakerMap(elementType, min, max).commable);
+      buffer.writeln(elementType.isNull
+          ? FakerableConstants.nullString.commable
+          : _fakerMap(elementType, min, max).commable);
     } else {
       buffer.writeln(_handleObjectField(elementType).commable);
     }

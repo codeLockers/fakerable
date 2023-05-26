@@ -1,5 +1,8 @@
 import 'dart:math';
 
+import 'package:analyzer/dart/element/element.dart';
+import 'package:faker/faker.dart';
+
 class FakerableConstants {
   // ignore: non_constant_identifier_names
   static String Faker = 'Faker';
@@ -17,6 +20,7 @@ class FakerableConstants {
   static String email = '${FakerableConstants.internet}.email';
   static String phone = '${FakerableConstants.faker}.phoneNumber';
   static String image = '${FakerableConstants.faker}.image.image';
+  static String nullString = 'null';
 }
 
 int randomInt(int min, int max) {
@@ -27,14 +31,17 @@ int randomInt(int min, int max) {
 }
 
 extension StringConvertType on String {
-  bool get isInt => this == 'int';
-  bool get isDouble => this == 'double';
-  bool get isString => this == 'String';
-  bool get isBool => this == 'bool';
+  bool get isInt => this == 'int' || this == 'int?';
+  bool get isDouble => this == 'double' || this == 'double?';
+  bool get isString => this == 'String' || this == 'String?';
+  bool get isBool => this == 'bool' || this == 'bool?';
   bool get isList => startsWith('List<');
   bool get isMap => startsWith('Map<');
+  bool get isOptional => endsWith('?');
+  bool get isNull => isOptional && Faker().randomGenerator.boolean();
 
   String get commable => '$this,';
+  String get removeOptional => isOptional ? substring(0, length - 1) : this;
 
   String get listElementType {
     if (!isList) {
@@ -78,4 +85,8 @@ extension StringConvertType on String {
   }
 
   String get mapZip => '{$this}';
+}
+
+extension FieldElementPropery on FieldElement {
+  String get typeName => declaration.type.toString();
 }

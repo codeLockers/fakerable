@@ -17,14 +17,14 @@ dependencies:
   path: ^1.8.2
   build: ^2.3.1
   
-  fakerable_annotations:
-    git:
-      url: https://github.com/codeLockers/fakerable.git
-      ref: master
-      path: fakerable_annotations/
-
   # fakerable_annotations:
-  #   path: ../fakerable_annotations/
+  #   git:
+  #     url: https://github.com/codeLockers/fakerable.git
+  #     ref: master
+  #     path: fakerable_annotations/
+
+  fakerable_annotations:
+    path: ../fakerable_annotations/
 
 dev_dependencies:
   flutter_test:
