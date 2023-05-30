@@ -1,16 +1,10 @@
-import 'dart:math';
-
-import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:fakerable/visitor/fakerable_class_visitor.dart';
 import 'package:fakerable/visitor/fakerable_enum_visitor.dart';
 import 'package:fakerable_annotations/fakerable_annotations.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:path/path.dart' as p;
-import 'package:faker/faker.dart';
-
 import 'fakerable_core.dart';
 
 part 'handler/fakerable_list_handler.dart';

@@ -1,4 +1,3 @@
-import 'package:example/model.dart';
 import 'package:flutter/material.dart';
 
 void main() {

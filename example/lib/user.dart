@@ -1,6 +1,5 @@
 import 'package:fakerable_annotations/fakerable_annotations.dart';
 import 'package:faker/faker.dart';
-import 'package:flutter/material.dart';
 
 part 'user.fakerable.g.dart';
 
