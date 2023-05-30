@@ -1,9 +1,9 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/visitor.dart';
 
-class FakerableVisitor extends SimpleElementVisitor<dynamic> {
+class FakerableEnumVisitor extends SimpleElementVisitor<dynamic> {
   String className = '';
-  List<FieldElement> fields = [];
+  List<String> constants = [];
 
   @override
   visitConstructorElement(ConstructorElement element) {
@@ -13,7 +13,9 @@ class FakerableVisitor extends SimpleElementVisitor<dynamic> {
 
   @override
   visitFieldElement(FieldElement element) {
-    fields.add(element);
+    if (element.isEnumConstant) {
+      constants.add(element.name);
+    }
     return super.visitFieldElement(element);
   }
 }

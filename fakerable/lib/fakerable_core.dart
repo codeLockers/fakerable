@@ -21,6 +21,11 @@ class FakerableConstants {
   static String phone = '${FakerableConstants.faker}.phoneNumber';
   static String image = '${FakerableConstants.faker}.image.image';
   static String nullString = 'null';
+
+  static String fakerableConstructor(String name) =>
+      '$name _\$${name}Fakerable()';
+  static String fakerDefination =
+      'final ${FakerableConstants.Faker} ${FakerableConstants.faker} = ${FakerableConstants.Faker}();';
 }
 
 int randomInt(int min, int max) {
@@ -39,6 +44,8 @@ extension StringConvertType on String {
   bool get isMap => startsWith('Map<');
   bool get isOptional => endsWith('?');
   bool get isNull => isOptional && Faker().randomGenerator.boolean();
+  bool get isClass => toLowerCase() == 'class';
+  bool get isEnum => toLowerCase() == 'enum';
 
   String get commable => '$this,';
   String get removeOptional => isOptional ? substring(0, length - 1) : this;
@@ -89,4 +96,15 @@ extension StringConvertType on String {
 
 extension FieldElementPropery on FieldElement {
   String get typeName => declaration.type.toString();
+}
+
+enum FakerableType {
+  fakerableClass('class'),
+  fakerableEnum('enum');
+
+  final String name;
+  const FakerableType(this.name);
+
+  static FakerableType value(String name) =>
+      FakerableType.values.firstWhere((element) => element.name == name);
 }
