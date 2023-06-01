@@ -1,37 +1,32 @@
+import 'dart:math';
+
 import 'package:fakerable_annotations/fakerable_annotations.dart';
 import 'package:faker/faker.dart';
+import 'package:flutter/material.dart';
+
+import 'book.dart';
 
 part 'user.fakerable.g.dart';
 
-@fakerable
 enum Location {
   china,
   usa,
   ja,
   se,
   uk;
-
-  static Location fakerable() => _$LocationFakerable();
 }
 
 @fakerable
 class User {
-  final int sex;
-  final double height;
-  final String address;
+  final Book book;
   final Location location;
-  @FakerableRange(min: 2, max: 5)
-  final List<Location> locations;
-  @FakerableRange(min: 1, max: 3)
-  final Map<Location, Location> mapLocation;
+  final Axis axis;
 
-  const User(
-      {required this.sex,
-      required this.height,
-      required this.address,
-      required this.location,
-      required this.locations,
-      required this.mapLocation});
+  const User({
+    required this.book,
+    required this.location,
+    required this.axis,
+  });
 
   factory User.fakerable() => _$UserFakerable();
 }

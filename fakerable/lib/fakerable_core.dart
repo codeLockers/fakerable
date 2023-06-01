@@ -96,6 +96,7 @@ extension StringConvertType on String {
 
 extension FieldElementPropery on FieldElement {
   String get typeName => declaration.type.toString();
+  String get kindName => type.element?.kind.name ?? '';
 }
 
 enum FakerableType {

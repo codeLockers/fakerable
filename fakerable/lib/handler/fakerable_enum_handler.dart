@@ -1,16 +1,7 @@
 part of '../fakerable_generator.dart';
 
-String _handleEnumElement(Element element) {
+String _handleEnumField(FieldElement field) {
   final visitor = FakerableEnumVisitor();
-  element.visitChildren(visitor);
-
-  final classBuffer = StringBuffer();
-  classBuffer.writeln(
-      '${FakerableConstants.fakerableConstructor(visitor.className)} {');
-  classBuffer.writeln(FakerableConstants.fakerDefination);
-  classBuffer.writeln(
-      'final index = ${FakerableConstants.integer}(${visitor.constants.length - 1}, min: 0);');
-  classBuffer.writeln('return ${visitor.className}.values[index];');
-  classBuffer.writeln('}');
-  return classBuffer.toString();
+  field.type.element?.visitChildren(visitor);
+  return '${visitor.className}.values[Random().nextInt(${visitor.constants.length - 1})]';
 }

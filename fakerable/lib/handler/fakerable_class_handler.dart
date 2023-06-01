@@ -28,6 +28,8 @@ String _handleClassField(FieldElement field) {
     return _handleBoolField(field).commable;
   } else if (field.type.isDartCoreString) {
     return _handleStringField(field).commable;
+  } else if (field.kindName.isEnum) {
+    return _handleEnumField(field).commable;
   } else if (field.type.isDartCoreList) {
     return _handleListField(field).commable;
   } else if (field.type.isDartCoreMap) {

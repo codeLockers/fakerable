@@ -34,16 +34,7 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
       classBuffer.writeln('');
     }
     _alreadyHandleFiles.add(file);
-    switch (FakerableType.value(element.kind.name.toLowerCase())) {
-      case FakerableType.fakerableEnum:
-        classBuffer.writeln(_handleEnumElement(element));
-        break;
-      case FakerableType.fakerableClass:
-        classBuffer.writeln(_handleClassElement(element));
-        break;
-      default:
-        break;
-    }
+    classBuffer.writeln(_handleClassElement(element));
     return classBuffer.toString();
   }
 }
