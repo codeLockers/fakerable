@@ -57,6 +57,17 @@ dependencies:
    ```dart
    factory Model.fakerable() => _$ModelFakerable();
    ```
+6. support custom enum
+   ```dart
+   @fakerable
+   enum Book {
+    chinese,
+    english,
+    math;
+    static Book fakerable() => _$BookFakerable();
+   }
+   ```
+7. unsupport system enum
 ## Documents
 <table>
     <tr>
