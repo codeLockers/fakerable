@@ -31,14 +31,13 @@ Model _$ModelFakerable() {
     listInt: [
       faker.randomGenerator.integer(5, min: 0),
       faker.randomGenerator.integer(5, min: 0),
-      faker.randomGenerator.integer(5, min: 0),
-      faker.randomGenerator.integer(5, min: 0),
     ],
     listDouble: [],
     listString: [
       faker.randomGenerator.string(5, min: 0),
     ],
     listBool: [
+      faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
     ],
@@ -48,13 +47,23 @@ Model _$ModelFakerable() {
       User.fakerable(),
       User.fakerable(),
     ],
-    listsInt: [],
-    listsDouble: [],
-    listsString: [
+    listsInt: [
       [
-        faker.randomGenerator.string(5, min: 0),
-        faker.randomGenerator.string(5, min: 0),
+        faker.randomGenerator.integer(5, min: 0),
       ],
+      [
+        faker.randomGenerator.integer(5, min: 0),
+        faker.randomGenerator.integer(5, min: 0),
+        faker.randomGenerator.integer(5, min: 0),
+      ],
+      [
+        faker.randomGenerator.integer(5, min: 0),
+      ],
+    ],
+    listsDouble: [
+      [],
+    ],
+    listsString: [
       [
         faker.randomGenerator.string(5, min: 0),
         faker.randomGenerator.string(5, min: 0),
@@ -77,13 +86,6 @@ Model _$ModelFakerable() {
         User.fakerable(),
         User.fakerable(),
         User.fakerable(),
-        User.fakerable(),
-      ],
-      [
-        User.fakerable(),
-        User.fakerable(),
-        User.fakerable(),
-        User.fakerable(),
       ],
       [
         User.fakerable(),
@@ -91,6 +93,7 @@ Model _$ModelFakerable() {
         User.fakerable(),
       ],
       [
+        User.fakerable(),
         User.fakerable(),
         User.fakerable(),
         User.fakerable(),
@@ -102,14 +105,17 @@ Model _$ModelFakerable() {
             faker.randomGenerator.string(5, min: 0),
       },
     ],
-    mapStringString: {},
-    mapDoubleDouble: {
-      faker.randomGenerator.decimal(): faker.randomGenerator.decimal(),
+    mapStringString: {
+      faker.randomGenerator.string(5, min: 0):
+          faker.randomGenerator.string(5, min: 0),
     },
+    mapDoubleDouble: {},
     mapBoolBool: {
       faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
     },
     mapIntInt: {
+      faker.randomGenerator.integer(5, min: 0):
+          faker.randomGenerator.integer(5, min: 0),
       faker.randomGenerator.integer(5, min: 0):
           faker.randomGenerator.integer(5, min: 0),
       faker.randomGenerator.integer(5, min: 0):
@@ -122,9 +128,12 @@ Model _$ModelFakerable() {
       User.fakerable(): User.fakerable(),
       User.fakerable(): User.fakerable(),
       User.fakerable(): User.fakerable(),
+      User.fakerable(): User.fakerable(),
     },
     mapListStringListString: {
-      []: [],
+      []: [
+        faker.randomGenerator.string(5, min: 0),
+      ],
     },
     mapListsIntListsInt: {
       [
@@ -142,136 +151,87 @@ Model _$ModelFakerable() {
       },
     },
     intNullable1: faker.randomGenerator.integer(5, min: 0),
-    intNullable2: faker.randomGenerator.integer(15, min: 10),
+    intNullable2: null,
     intNullable3: null,
     intNullable4: null,
     doubleNullable1: null,
-    doubleNullable2:
-        faker.randomGenerator.decimal(scale: 1.8000000000000007, min: 9.7),
-    doubleNullable3: null,
+    doubleNullable2: null,
+    doubleNullable3: faker.randomGenerator.decimal(),
     doubleNullable4: null,
     boolNullable1: null,
-    boolNullable2: null,
-    boolNullable3: null,
+    boolNullable2: faker.randomGenerator.boolean(),
+    boolNullable3: faker.randomGenerator.boolean(),
     boolNullable4: null,
-    stringNullable1: faker.randomGenerator.string(5, min: 0),
+    stringNullable1: null,
     stringNullable2: faker.randomGenerator.string(6, min: 3),
     stringNullable3: null,
     stringNullable4: null,
     userNullable1: null,
-    userNullable2: User.fakerable(),
+    userNullable2: null,
     intListNullable1: null,
-    intListNullable2: [
-      null,
-      null,
-      faker.randomGenerator.integer(5, min: 0),
-    ],
-    intListNullable3: [
-      faker.randomGenerator.integer(5, min: 0),
-      faker.randomGenerator.integer(5, min: 0),
-      null,
-      null,
-    ],
+    intListNullable2: null,
+    intListNullable3: null,
     doubleListNullable1: [
+      null,
       faker.randomGenerator.decimal(),
     ],
-    doubleListNullable2: null,
+    doubleListNullable2: [
+      null,
+      null,
+    ],
     doubleListNullable3: [
-      null,
+      faker.randomGenerator.decimal(),
+      faker.randomGenerator.decimal(),
+      faker.randomGenerator.decimal(),
       faker.randomGenerator.decimal(),
     ],
-    stringListNullable1: [
-      faker.randomGenerator.string(5, min: 0),
-      faker.randomGenerator.string(5, min: 0),
-      null,
-      null,
-    ],
+    stringListNullable1: null,
     stringListNullable2: [
-      faker.randomGenerator.string(5, min: 0),
-      faker.randomGenerator.string(5, min: 0),
-    ],
-    stringListNullable3: [
       null,
       null,
-      faker.randomGenerator.string(5, min: 0),
       null,
     ],
+    stringListNullable3: null,
     userListNullable1: null,
-    userListNullable2: null,
-    userListNullable3: [
+    userListNullable2: [
+      User.fakerable(),
       User.fakerable(),
       null,
-      User.fakerable(),
-      User.fakerable(),
     ],
-    intListsNullable1: [
-      [
-        faker.randomGenerator.integer(5, min: 0),
-      ],
-    ],
+    userListNullable3: null,
+    intListsNullable1: null,
     doubleListsNullable2: null,
     stringListsNullable3: null,
-    mapIntDoubleListNullable1: null,
-    mapStringBoolListNullable2: [
-      null,
+    mapIntDoubleListNullable1: [
+      {
+        null: faker.randomGenerator.decimal(),
+        faker.randomGenerator.integer(5, min: 0):
+            faker.randomGenerator.decimal(),
+      },
       null,
     ],
-    mapIntIntListStringListNullable3: [
+    mapStringBoolListNullable2: [
       null,
       {
-        {
-          null: faker.randomGenerator.integer(5, min: 0),
-        }: [],
-        {
-          null: null,
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-          null: null,
-          faker.randomGenerator.integer(5, min: 0): null,
-        }: [
-          null,
-        ],
+        null: null,
+        null: faker.randomGenerator.boolean(),
+        faker.randomGenerator.string(5, min: 0): null,
       },
       {
-        {
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-        }: [
-          null,
-          null,
-          faker.randomGenerator.string(5, min: 0),
-        ],
-        {
-          null: faker.randomGenerator.integer(5, min: 0),
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-          null: faker.randomGenerator.integer(5, min: 0),
-        }: [],
-        {
-          null: faker.randomGenerator.integer(5, min: 0),
-        }: [],
+        null: faker.randomGenerator.boolean(),
+        null: null,
       },
+    ],
+    mapIntIntListStringListNullable3: [
       {
-        {
-          null: faker.randomGenerator.integer(5, min: 0),
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-        }: [
-          null,
+        {}: [
           faker.randomGenerator.string(5, min: 0),
-        ],
-        {
-          null: null,
-          faker.randomGenerator.integer(5, min: 0):
-              faker.randomGenerator.integer(5, min: 0),
-        }: [
-          null,
           faker.randomGenerator.string(5, min: 0),
-          null,
         ],
       },
+      null,
+      null,
+      null,
     ],
   );
 }

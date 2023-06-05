@@ -46,6 +46,7 @@ extension StringConvertType on String {
   bool get isNull => isOptional && Faker().randomGenerator.boolean();
   bool get isClass => toLowerCase() == 'class';
   bool get isEnum => toLowerCase() == 'enum';
+  bool get isExtension => toLowerCase() == 'extension';
 
   String get commable => '$this,';
   String get removeOptional => isOptional ? substring(0, length - 1) : this;
@@ -92,6 +93,12 @@ extension StringConvertType on String {
   }
 
   String get mapZip => '{$this}';
+
+  String get extensionClassType {
+    int startIndex = indexOf('_\$') + '_\$'.length;
+    int endIndex = lastIndexOf('FakerableExtension');
+    return substring(startIndex, endIndex);
+  }
 }
 
 extension FieldElementPropery on FieldElement {

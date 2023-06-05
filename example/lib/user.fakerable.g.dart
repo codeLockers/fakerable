@@ -9,8 +9,16 @@ part of 'user.dart';
 User _$UserFakerable() {
   final Faker faker = Faker();
   return User(
-    book: Book.values[Random().nextInt(2)],
-    location: Location.values[Random().nextInt(4)],
-    axis: Axis.values[Random().nextInt(1)],
+    book: Book.fakerable(),
+    location: Location.fakerable(),
+    books: [
+      Book.fakerable(),
+      Book.fakerable(),
+      Book.fakerable(),
+      Book.fakerable(),
+    ],
   );
 }
+
+Location _$LocationFakerable() =>
+    Location.values[Random().nextInt(Location.values.length - 1)];

@@ -3,6 +3,7 @@ part of '../fakerable_generator.dart';
 String _handleClassElement(Element element) {
   final visitor = FakerableClassVisitor();
   element.visitChildren(visitor);
+
   final classBuffer = StringBuffer();
   classBuffer
       .writeln('${visitor.className} _\$${visitor.className}Fakerable() {');
@@ -28,8 +29,6 @@ String _handleClassField(FieldElement field) {
     return _handleBoolField(field).commable;
   } else if (field.type.isDartCoreString) {
     return _handleStringField(field).commable;
-  } else if (field.kindName.isEnum) {
-    return _handleEnumField(field).commable;
   } else if (field.type.isDartCoreList) {
     return _handleListField(field).commable;
   } else if (field.type.isDartCoreMap) {

@@ -1,7 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:fakerable/visitor/fakerable_class_visitor.dart';
-import 'package:fakerable/visitor/fakerable_enum_visitor.dart';
 import 'package:fakerable_annotations/fakerable_annotations.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:path/path.dart' as p;
@@ -34,7 +33,15 @@ class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
       classBuffer.writeln('');
     }
     _alreadyHandleFiles.add(file);
-    classBuffer.writeln(_handleClassElement(element));
+
+    switch (FakerableType.value(element.kind.name.toLowerCase())) {
+      case FakerableType.fakerableClass:
+        classBuffer.writeln(_handleClassElement(element));
+        break;
+      case FakerableType.fakerableEnum:
+        classBuffer.writeln(_handleEnumElement(element));
+        break;
+    }
     return classBuffer.toString();
   }
 }
