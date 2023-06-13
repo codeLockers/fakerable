@@ -27,6 +27,8 @@ String _fakerList(String elementType, int min, int max) {
       buffer.writeln(_handleBoolTypeString(elementType).commable);
     } else if (elementType.isString) {
       buffer.writeln(_handleStringTypeString(elementType).commable);
+    } else if (elementType.isDate) {
+      buffer.writeln(_handleDateTypeString(elementType).commable);
     } else if (elementType.isList) {
       buffer.writeln(elementType.isNull
           ? FakerableConstants.nullString.commable

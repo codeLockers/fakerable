@@ -15,6 +15,7 @@ part 'handler/fakerable_object_handler.dart';
 part 'handler/fakerable_map_handler.dart';
 part 'handler/fakerable_enum_handler.dart';
 part 'handler/fakerable_class_handler.dart';
+part 'handler/fakerable_date_handler.dart';
 
 class FakerableGenerator extends GeneratorForAnnotation<Fakerable> {
   final List<String?> _alreadyHandleFiles = [];

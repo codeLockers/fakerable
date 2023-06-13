@@ -11,12 +11,7 @@ User _$UserFakerable() {
   return User(
     book: Book.fakerable(),
     location: Location.fakerable(),
-    books: [
-      Book.fakerable(),
-      Book.fakerable(),
-      Book.fakerable(),
-      Book.fakerable(),
-    ],
+    books: [],
   );
 }
 

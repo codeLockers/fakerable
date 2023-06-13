@@ -149,6 +149,19 @@ class Model {
   final List<Map<Map<int?, int?>, List<String?>>?>?
       mapIntIntListStringListNullable3;
 
+  final DateTime date;
+  @FakerableValue<FakerableDate>(FakerableDate(
+      year: 2023, month: 6, day: 13, hour: 11, minute: 35, second: 20))
+  final DateTime dateValue;
+  @FakerableRange<FakerableDate>(
+      min: FakerableDate(
+          year: 2021, month: 1, day: 2, hour: 3, minute: 4, second: 5),
+      max: FakerableDate(
+          year: 2025, month: 2, day: 3, hour: 11, minute: 35, second: 20))
+  final DateTime dateRange;
+  final List<DateTime> dates;
+  final Map<DateTime, DateTime> mapDate;
+
   const Model(
       {required this.age,
       required this.ageRange,
@@ -222,6 +235,11 @@ class Model {
       required this.stringListsNullable3,
       required this.mapIntDoubleListNullable1,
       required this.mapStringBoolListNullable2,
-      required this.mapIntIntListStringListNullable3});
+      required this.mapIntIntListStringListNullable3,
+      required this.date,
+      required this.dateValue,
+      required this.dateRange,
+      required this.dates,
+      required this.mapDate});
   factory Model.fakerable() => _$ModelFakerable();
 }

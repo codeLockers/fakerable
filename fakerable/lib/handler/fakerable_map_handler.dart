@@ -45,6 +45,8 @@ String _fakerType(String type, int min, int max) {
     return _handleBoolTypeString(type);
   } else if (type.isString) {
     return _handleStringTypeString(type);
+  } else if (type.isDate) {
+    return _handleDateTypeString(type);
   } else if (type.isList) {
     return type.isNull
         ? FakerableConstants.nullString.commable

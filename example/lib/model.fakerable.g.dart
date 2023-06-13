@@ -28,16 +28,13 @@ Model _$ModelFakerable() {
     textValueSpecialEmail: faker.internet.email(),
     textValueSpecialImage: faker.image.image(),
     textValueSpecialPhone: faker.phoneNumber.us(),
-    listInt: [
-      faker.randomGenerator.integer(5, min: 0),
-      faker.randomGenerator.integer(5, min: 0),
-    ],
+    listInt: [],
     listDouble: [],
     listString: [
       faker.randomGenerator.string(5, min: 0),
+      faker.randomGenerator.string(5, min: 0),
     ],
     listBool: [
-      faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
       faker.randomGenerator.boolean(),
     ],
@@ -45,25 +42,24 @@ Model _$ModelFakerable() {
       User.fakerable(),
       User.fakerable(),
       User.fakerable(),
-      User.fakerable(),
     ],
     listsInt: [
       [
         faker.randomGenerator.integer(5, min: 0),
-      ],
-      [
         faker.randomGenerator.integer(5, min: 0),
-        faker.randomGenerator.integer(5, min: 0),
-        faker.randomGenerator.integer(5, min: 0),
-      ],
-      [
         faker.randomGenerator.integer(5, min: 0),
       ],
     ],
     listsDouble: [
-      [],
+      [
+        faker.randomGenerator.decimal(),
+      ],
     ],
     listsString: [
+      [
+        faker.randomGenerator.string(5, min: 0),
+        faker.randomGenerator.string(5, min: 0),
+      ],
       [
         faker.randomGenerator.string(5, min: 0),
         faker.randomGenerator.string(5, min: 0),
@@ -96,7 +92,6 @@ Model _$ModelFakerable() {
         User.fakerable(),
         User.fakerable(),
         User.fakerable(),
-        User.fakerable(),
       ],
     ],
     listMapStringString: [
@@ -105,17 +100,12 @@ Model _$ModelFakerable() {
             faker.randomGenerator.string(5, min: 0),
       },
     ],
-    mapStringString: {
-      faker.randomGenerator.string(5, min: 0):
-          faker.randomGenerator.string(5, min: 0),
-    },
+    mapStringString: {},
     mapDoubleDouble: {},
     mapBoolBool: {
       faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
     },
     mapIntInt: {
-      faker.randomGenerator.integer(5, min: 0):
-          faker.randomGenerator.integer(5, min: 0),
       faker.randomGenerator.integer(5, min: 0):
           faker.randomGenerator.integer(5, min: 0),
       faker.randomGenerator.integer(5, min: 0):
@@ -128,13 +118,8 @@ Model _$ModelFakerable() {
       User.fakerable(): User.fakerable(),
       User.fakerable(): User.fakerable(),
       User.fakerable(): User.fakerable(),
-      User.fakerable(): User.fakerable(),
     },
-    mapListStringListString: {
-      []: [
-        faker.randomGenerator.string(5, min: 0),
-      ],
-    },
+    mapListStringListString: {},
     mapListsIntListsInt: {
       [
         faker.randomGenerator.integer(5, min: 0),
@@ -150,88 +135,94 @@ Model _$ModelFakerable() {
         faker.randomGenerator.boolean(): faker.randomGenerator.boolean(),
       },
     },
-    intNullable1: faker.randomGenerator.integer(5, min: 0),
-    intNullable2: null,
+    intNullable1: null,
+    intNullable2: faker.randomGenerator.integer(15, min: 10),
     intNullable3: null,
     intNullable4: null,
-    doubleNullable1: null,
+    doubleNullable1: faker.randomGenerator.decimal(),
     doubleNullable2: null,
     doubleNullable3: faker.randomGenerator.decimal(),
     doubleNullable4: null,
-    boolNullable1: null,
+    boolNullable1: faker.randomGenerator.boolean(),
     boolNullable2: faker.randomGenerator.boolean(),
     boolNullable3: faker.randomGenerator.boolean(),
     boolNullable4: null,
-    stringNullable1: null,
+    stringNullable1: faker.randomGenerator.string(5, min: 0),
     stringNullable2: faker.randomGenerator.string(6, min: 3),
     stringNullable3: null,
     stringNullable4: null,
-    userNullable1: null,
+    userNullable1: User.fakerable(),
     userNullable2: null,
     intListNullable1: null,
-    intListNullable2: null,
-    intListNullable3: null,
-    doubleListNullable1: [
+    intListNullable2: [
       null,
-      faker.randomGenerator.decimal(),
+      null,
+      null,
     ],
+    intListNullable3: null,
+    doubleListNullable1: null,
     doubleListNullable2: [
       null,
-      null,
-    ],
-    doubleListNullable3: [
-      faker.randomGenerator.decimal(),
-      faker.randomGenerator.decimal(),
-      faker.randomGenerator.decimal(),
       faker.randomGenerator.decimal(),
     ],
+    doubleListNullable3: null,
     stringListNullable1: null,
     stringListNullable2: [
       null,
-      null,
-      null,
+      faker.randomGenerator.string(5, min: 0),
     ],
     stringListNullable3: null,
     userListNullable1: null,
-    userListNullable2: [
-      User.fakerable(),
-      User.fakerable(),
-      null,
-    ],
+    userListNullable2: null,
     userListNullable3: null,
     intListsNullable1: null,
-    doubleListsNullable2: null,
+    doubleListsNullable2: [
+      null,
+      null,
+      null,
+    ],
     stringListsNullable3: null,
     mapIntDoubleListNullable1: [
-      {
-        null: faker.randomGenerator.decimal(),
-        faker.randomGenerator.integer(5, min: 0):
-            faker.randomGenerator.decimal(),
-      },
       null,
     ],
     mapStringBoolListNullable2: [
       null,
+      null,
       {
         null: null,
-        null: faker.randomGenerator.boolean(),
         faker.randomGenerator.string(5, min: 0): null,
-      },
-      {
-        null: faker.randomGenerator.boolean(),
         null: null,
       },
     ],
     mapIntIntListStringListNullable3: [
+      {},
       {
-        {}: [
-          faker.randomGenerator.string(5, min: 0),
+        {
+          null: null,
+          faker.randomGenerator.integer(5, min: 0): null,
+          faker.randomGenerator.integer(5, min: 0):
+              faker.randomGenerator.integer(5, min: 0),
+        }: [
+          null,
           faker.randomGenerator.string(5, min: 0),
         ],
+        {}: [],
       },
       null,
-      null,
-      null,
     ],
+    date: faker.date.dateTime(),
+    dateValue: DateTime(2023, 6, 13, 11, 35, 20),
+    dateRange: faker.date.dateTimeBetween(
+        DateTime(2021, 1, 2, 3, 4, 5), DateTime(2025, 2, 3, 11, 35, 20)),
+    dates: [
+      faker.date.dateTime(),
+      faker.date.dateTime(),
+      faker.date.dateTime(),
+      faker.date.dateTime(),
+    ],
+    mapDate: {
+      faker.date.dateTime(): faker.date.dateTime(),
+      faker.date.dateTime(): faker.date.dateTime(),
+    },
   );
 }

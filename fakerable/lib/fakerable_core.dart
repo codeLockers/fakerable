@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:faker/faker.dart';
+import 'package:fakerable_annotations/fakerable_annotations.dart';
+import 'package:source_gen/source_gen.dart';
 
 class FakerableConstants {
   // ignore: non_constant_identifier_names
@@ -20,6 +22,7 @@ class FakerableConstants {
   static String email = '${FakerableConstants.internet}.email';
   static String phone = '${FakerableConstants.faker}.phoneNumber';
   static String image = '${FakerableConstants.faker}.image.image';
+  static String date = '${FakerableConstants.faker}.date.dateTime';
   static String nullString = 'null';
 
   static String fakerableConstructor(String name) =>
@@ -47,6 +50,8 @@ extension StringConvertType on String {
   bool get isClass => toLowerCase() == 'class';
   bool get isEnum => toLowerCase() == 'enum';
   bool get isExtension => toLowerCase() == 'extension';
+  bool get isDate =>
+      toLowerCase() == 'datetime' || toLowerCase() == 'datetime?';
 
   String get commable => '$this,';
   String get removeOptional => isOptional ? substring(0, length - 1) : this;
@@ -115,4 +120,19 @@ enum FakerableType {
 
   static FakerableType value(String name) =>
       FakerableType.values.firstWhere((element) => element.name == name);
+}
+
+extension FakerableDateParse on FakerableDate {
+  static int year(ConstantReader reader) => reader.read('year').intValue;
+  static int month(ConstantReader reader) => reader.read('month').intValue;
+  static int day(ConstantReader reader) => reader.read('day').intValue;
+  static int hour(ConstantReader reader) => reader.read('hour').intValue;
+  static int minute(ConstantReader reader) => reader.read('minute').intValue;
+  static int second(ConstantReader reader) => reader.read('second').intValue;
+
+  static String dateString(ConstantReader reader) =>
+      'DateTime(${year(reader)}, ${month(reader)}, ${day(reader)}, ${hour(reader)}, ${minute(reader)}, ${second(reader)})';
+
+  static DateTime date(ConstantReader reader) => DateTime(year(reader),
+      month(reader), day(reader), hour(reader), minute(reader), second(reader));
 }

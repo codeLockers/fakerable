@@ -29,6 +29,8 @@ String _handleClassField(FieldElement field) {
     return _handleBoolField(field).commable;
   } else if (field.type.isDartCoreString) {
     return _handleStringField(field).commable;
+  } else if (field.typeName.isDate) {
+    return _handleDateField(field).commable;
   } else if (field.type.isDartCoreList) {
     return _handleListField(field).commable;
   } else if (field.type.isDartCoreMap) {

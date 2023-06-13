@@ -29,3 +29,20 @@ enum FakerableSpecial {
   static FakerableSpecial type(String name) =>
       FakerableSpecial.values.firstWhere((type) => type.name == name);
 }
+
+class FakerableDate {
+  final int year;
+  final int month;
+  final int day;
+  final int hour;
+  final int minute;
+  final int second;
+
+  const FakerableDate(
+      {this.year = 2023,
+      this.month = 1,
+      this.day = 1,
+      this.hour = 0,
+      this.minute = 0,
+      this.second = 0});
+}
